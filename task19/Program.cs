@@ -1,27 +1,29 @@
-﻿// Задача 21
+﻿// Задача 19
 
-// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом. (палиндром - число читается слева направо и справа налево одинаково)
 
-// A (3,6,8); B (2,1,-7), -> 15.84
+// 14212 -> нет
 
-// A (7,-5, 0); B (1,-1,9) -> 11.53
+// 12821 -> да
 
-int x1 = ReadInt("Введите координату X первой точки и нажмите enter: ");
-int y1 = ReadInt("Введите координату Y первой точки и нажмите enter: ");
-int z1 = ReadInt("Введите координату Z первой точки и нажмите enter: ");
-int x2 = ReadInt("Введите координату X второй точки и нажмите enter: ");
-int y2 = ReadInt("Введите координату Y второй точки и нажмите enter: ");
-int z2 = ReadInt("Введите координату Z второй точки и нажмите enter: ");
+// 23432 -> да
 
-int A = x2 - x1;
-int B = y2 - y1;
-int C = z1 - z2;
+Console.WriteLine("Введите число и нажмите enter: ");
+string number = Console.ReadLine();
+int line = number.Length;
 
-double length = Math.Sqrt(A * A + B * B + C * C);
-Console.WriteLine($"Расстояние между точками в 3D пространстве  {length}");
-
-int ReadInt(string message)
+if (line == 5)
 {
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
+    if (number[0] == number[4] && number[1] == number[3])
+    {
+        Console.WriteLine($"{number} - палиндром");
+    }
+    else
+    {
+        Console.WriteLine($"{number} - не палиндром");
+    }
+}
+else
+{
+    Console.WriteLine($"{number} - число не пятизначное");
 }
